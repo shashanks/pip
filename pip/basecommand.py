@@ -158,7 +158,7 @@ class Command(object):
             exit = UNKNOWN_ERROR
         if store_log:
             log_file_fn = options.log_file
-            text = '\n'.join(complete_log)
+            text = '\n'.join(s.decode('utf-8') for s in complete_log).encode('utf-8')
             try:
                 log_file_fp = open_logfile(log_file_fn, 'w')
             except IOError:
